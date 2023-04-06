@@ -18,7 +18,7 @@ function CreateQuizForm() {
   return (
     <form className='h-screen relative' onSubmit={handleSubmit}>
         <div className='border-[1px] text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-4
-            flex flex-col bg-black/70 z-30 backdrop-blur-3xl p-10 rounded-md w-[340px]'>
+            flex flex-col bg-[#0b1124] z-30 backdrop-blur-3xl p-10 rounded-md w-[340px]'>
             <h1 className='text-center font-bold text-[#5942e9] text-3xl z-40'>Create a quiz</h1>
             <InputForm 
                 name="quizName"
@@ -57,7 +57,7 @@ function CreateQuizForm() {
                 Create Quiz
             </button>
         </div>
-        <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[300px] h-[400px] bg-[#2527a7] blur-xl"></div>
+        <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[340px] h-[420px] bg-[#2527a7] blur-xl"></div>
     </form>
   )
 }
