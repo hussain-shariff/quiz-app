@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
 
   return (
-    <div className=" min-h-screen bg-gradient-to-tl from-[#14155d] via-[#101229] to-black">
+    <div className=" min-h-screen bg-gradient-to-tl from-[#1b1d7a] via-[#101229] to-black">
       <Router>
         <NavBar/>
         <Routes>

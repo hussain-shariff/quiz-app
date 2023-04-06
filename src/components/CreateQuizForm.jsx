@@ -1,31 +1,19 @@
 import React, {useState} from 'react'
 import InputForm from './InputForm'
-
+import { useAppContext } from '../context'
 
 function CreateQuizForm() {
-    const [formData, setformData] = useState({
-        quizName : "",
-        description : "",
-        gradingSystem : "simple",
-        timeLimit : "2"
-    })
+    const {clearValues, handleChange, state} = useAppContext()
+    const {quizName, description, gradingSystem, timeLimit} = state
 
-    const handleChange = (e) =>{
-        setformData(prev=>{
-            return{
-                ...prev,
-                [e.target.name] : e.target.value
-            }
-        })
+    const handleData = (e) =>{
+        const name = e.target.name
+        const value = e.target.value       
+        handleChange(name, value)
     }
     const handleSubmit = (e) =>{
         e.preventDefault()
-        setformData({
-            quizName : "",
-            description : "",
-            gradingSystem : "simple",
-            timeLimit : "2"
-        })
+        clearValues()
     }
   return (
     <form className='h-screen relative' onSubmit={handleSubmit}>
@@ -36,18 +24,18 @@ function CreateQuizForm() {
                 name="quizName"
                 placeholder="Quiz Name"
                 type="text"
-                value = {formData.quizName}
-                setformData = { setformData }/>
+                value = {quizName}
+                setformData = { handleData }/>
             <InputForm 
                 name="description"
                 type="text"
-                value = {formData.description}
+                value = {description}
                 placeholder="Description"
-                setformData = { setformData }
+                setformData = { handleData }
                 />
             <div>
                 <label htmlFor="grading" className='font-semibold text-md'>Points system</label>
-                <select name='gradingSystem' id='grading' onChange={handleChange} value={formData.gradingSystem}
+                <select name='gradingSystem' id='grading' onChange={handleData} value={gradingSystem}
                 className='w-full py-1 bg-inherit border-b-[2px]' >
                     <option className='bg-[#5942e9]' value="simple">Simple Scoring</option>
                     <option className='bg-[#5942e9]' value="weighted">Weighted Scoring</option>
@@ -55,7 +43,7 @@ function CreateQuizForm() {
             </div>
             <div>
                 <label htmlFor="time-limit" className='font-semibold text-md'>Set time limit</label>
-                <select name='timeLimit' id='time-limit' onChange={handleChange} value={formData.timeLimit} 
+                <select name='timeLimit' id='time-limit' onChange={handleData} value={timeLimit} 
                 className='w-full py-1 bg-inherit border-b-[2px]' >
                     <option className='bg-[#5942e9]' value="1">1 min</option>
                     <option className='bg-[#5942e9]' value="2">2 min</option>
