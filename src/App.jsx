@@ -6,6 +6,7 @@ import CreateQuiz from "./pages/CreateQuiz";
 import TakeQuiz from "./pages/TakeQuiz";
 import StartQuiz from "./pages/StartQuiz";
 import AddQuestion from "./pages/AddQuestion";
+import EditQuestions from "./pages/EditQuestions";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/quiz" element={<TakeQuiz/>}></Route>
           <Route path="/startQuiz" element={<StartQuiz/>}></Route>
           <Route path="/AddQuestion" element={<AddQuestion/>}></Route>
+          <Route path="/Edit" element={<EditQuestions/>}></Route>
         </Routes>
       </Router>
     </div>

@@ -15,11 +15,13 @@ function StartQuiz() {
         <div className='mt-28 px-12 md:px-32'>
             <QuizQestion/>
             <div className='flex justify-between items-center mt-20 text-sm text-[#4391ff]'>
-                <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded'>
+                <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
+                hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'>
                     <FontAwesomeIcon icon={faChevronLeft}/> Previous
                 </div>
                 <h1 className='text-lg'>1/4</h1>
-                <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded'>
+                <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
+                hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'>
                     Next <FontAwesomeIcon icon={faChevronRight}/>
                 </div>
             </div>
