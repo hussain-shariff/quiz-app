@@ -1,8 +1,11 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
-import { faAnglesRight } from '@fortawesome/free-solid-svg-icons'
-import { faClock } from '@fortawesome/free-solid-svg-icons'
+import { 
+  faPenToSquare,
+  faClock,
+  faAnglesRight
+  } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 function Quiz() {
   return (
@@ -20,7 +23,9 @@ function Quiz() {
         </div>
         <p>A nest.js full stack project</p>
         <div className='flex gap-3 text-sm text-[#3489ff]'>
+          <Link to={'/startQuiz'}>
             <h1 className='cursor-pointer'>Start quiz <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
+          </Link>
             <h1 className='cursor-pointer'>Add question <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
             <h1 className='cursor-pointer'>Edit <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
         </div>
