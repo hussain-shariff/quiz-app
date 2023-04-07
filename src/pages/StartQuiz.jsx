@@ -1,8 +1,12 @@
 import React from 'react'
+import Timer from '../components/Timer'
+
 
 function StartQuiz() {
   return (
-    <div>StartQuiz</div>
+    <div className='min-h-screen relative'>
+        <Timer/>
+    </div>
   )
 }
 
