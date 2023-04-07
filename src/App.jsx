@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import CreateQuiz from "./pages/CreateQuiz";
 import TakeQuiz from "./pages/TakeQuiz";
 import StartQuiz from "./pages/StartQuiz";
+import AddQuestion from "./pages/AddQuestion";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/create" element={<CreateQuiz/>}></Route>
           <Route path="/quiz" element={<TakeQuiz/>}></Route>
           <Route path="/startQuiz" element={<StartQuiz/>}></Route>
+          <Route path="/AddQuestion" element={<AddQuestion/>}></Route>
         </Routes>
       </Router>
     </div>

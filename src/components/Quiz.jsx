@@ -26,7 +26,9 @@ function Quiz() {
           <Link to={'/startQuiz'}>
             <h1 className='cursor-pointer'>Start quiz <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
           </Link>
+          <Link to={'/AddQuestion'}>
             <h1 className='cursor-pointer'>Add question <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
+          </Link>
             <h1 className='cursor-pointer'>Edit <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
         </div>
     </div>
