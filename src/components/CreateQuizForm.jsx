@@ -52,9 +52,9 @@ function CreateQuizForm() {
                 </select>
             </div>
             <button className={`bg-gradient-to-r from-[#4327f9] to-[#7f6cff] py-1 rounded-sm 
-            font-bold text-lg hover:scale-105 transition ease-out duration-500 w-full text-[#070417]`}
+            text-lg font-semibold hover:scale-105 transition ease-out duration-500 w-full text-[#070417]`}
             type='submit'>
-                Create Quiz
+                Create
             </button>
         </div>
         <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[340px] h-[420px] bg-[#2527a7] blur-xl"></div>
