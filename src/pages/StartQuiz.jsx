@@ -8,12 +8,13 @@ import {
 import QuizQestion from '../components/QuizQestion'
 import { useAppContext } from '../context'
 import { useNavigate } from 'react-router-dom';
+import { notifyError } from '../Hooks/useNotifications'
 
 function StartQuiz() {
   const navigate = useNavigate()
   const [currentIndex, setCurrentIndex] = useState(0)
-  const {state} = useAppContext()
-  const {quizQuestions} = state
+  const {state, setSelectedChoice} = useAppContext()
+  const {quizQuestions, selectedChoice} = state
 
   useEffect(()=>{
     if(quizQuestions.length === 0){
@@ -25,7 +26,12 @@ function StartQuiz() {
     if(action === 'prev'){
       setCurrentIndex(prev=> prev-1)
     }else if(action === 'next'){
-      setCurrentIndex(pre=> pre+1)
+      if(selectedChoice === ''){
+        notifyError('select answer')
+      }else{
+        setSelectedChoice('')
+        setCurrentIndex(pre=> pre+1)
+      }
     }else if(action === 'finish'){
       navigate('/score')
     }else if(action === 'home'){

@@ -7,8 +7,6 @@ import {
   faBrain,
   faQuestionCircle
   } from '@fortawesome/free-solid-svg-icons'
-import { Link } from 'react-router-dom'
-import {notifySuccess} from '../Hooks/useNotifications'
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context'
 
