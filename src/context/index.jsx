@@ -8,6 +8,10 @@ function QuizProvider({children}) {
     const createQuiz = async () =>{
         dispatch({ type: 'CREATE_QUIZ' });
     }
+    
+    const addQuestion = async (id) =>{
+        dispatch({ type: 'ADD_QUESTION', id });
+    }
 
     const clearValues = () =>{
         dispatch({ type: 'CLEAR_VALUES' });

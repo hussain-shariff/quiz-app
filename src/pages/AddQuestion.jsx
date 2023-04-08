@@ -1,12 +1,22 @@
 import React from 'react'
 import InputForm from '../components/InputForm'
+import { useAppContext } from '../context'
+import { notifySuccess } from '../Hooks/useNotifications'
 
 function AddQuestion() {
-  const handleSubmit = () =>{
-
+    const { clearValues, handleChange, state } = useAppContext()
+    const { question, optionA, optionB, optionC, optionD, correctAnswer } = state
+    console.log(question, optionA, optionB, optionC, optionD, correctAnswer);
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    notifySuccess('Question added')
+    clearValues()
   }
-  const handleData = () =>{
 
+  const handleData = (e) =>{
+    const name = e.target.name
+    const value = e.target.value
+    handleChange(name, value)
   }
   return (
     <form className='h-screen relative' onSubmit={handleSubmit}>
@@ -14,48 +24,48 @@ function AddQuestion() {
             flex flex-col bg-[#0b1124] z-30 backdrop-blur-3xl p-10 rounded-md w-[400px]'>
             <h1 className='text-center font-bold text-[#5942e9] text-3xl z-40'>Add Question</h1>
             <InputForm 
-                name="quizName"
+                name="question"
                 placeholder="Question"
                 type="text"
-                value = {''}
+                value = {question}
                 setformData = { handleData }/>
             <h1 className='mt-3'>Set Choices for the question</h1>
             <InputForm 
-                name="description"
+                name="optionA"
                 type="text"
-                value = {''}
-                placeholder="Option 1"
+                value = {optionA}
+                placeholder="Option A"
                 setformData = { handleData }
                 />
             <InputForm 
-                name="description"
+                name="optionB"
                 type="text"
-                value = {''}
-                placeholder="Option 2"
+                value = {optionB}
+                placeholder="Option B"
                 setformData = { handleData }
                 />
             <InputForm 
-                name="description"
+                name="optionC"
                 type="text"
-                value = {''}
-                placeholder="Option 3"
+                value = {optionC}
+                placeholder="Option C"
                 setformData = { handleData }
                 />
             <InputForm 
-                name="description"
+                name="optionD"
                 type="text"
-                value = {''}
-                placeholder="Option 4"
+                value = {optionD}
+                placeholder="Option D"
                 setformData = { handleData }
                 />
             <div>
                 <label htmlFor="time-limit" className='font-semibold text-md'>Set Answer</label>
-                <select name='timeLimit' id='time-limit' onChange={handleData} value={''} 
+                <select name='correctAnswer' id='time-limit' onChange={handleData}
                 className='w-full py-1 bg-inherit border-b-[2px]' >
-                    <option className='bg-[#5942e9]' value="Option 1">1</option>
-                    <option className='bg-[#5942e9]' value="Option 2">2</option>
-                    <option className='bg-[#5942e9]' value="Option 3">3</option>
-                    <option className='bg-[#5942e9]' value="Option 4">4</option>
+                    <option className='bg-[#5942e9]' value='A'>Option A</option>
+                    <option className='bg-[#5942e9]' value='B'>Option B</option>
+                    <option className='bg-[#5942e9]' value='C'>Option C</option>
+                    <option className='bg-[#5942e9]' value='D'>Option D</option>
                 </select>
             </div>
             <button className={`bg-gradient-to-r from-[#4327f9] to-[#6551ea] py-1 rounded-sm 

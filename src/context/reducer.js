@@ -3,7 +3,14 @@ export const initialState = {
     description : "",
     gradingSystem : "simple",
     timeLimit : "2",
-    quizList : []
+    quizList : [],
+    questionsList : [],
+    question : '',
+    optionA:'',
+    optionB:'',
+    optionC:'',
+    optionD:'',
+    correctAnswer:''
 }
 
 function quizReducer(state, action) {
@@ -19,7 +26,13 @@ function quizReducer(state, action) {
             quizName : "",
             description : "",
             gradingSystem : "simple",
-            timeLimit : "2"
+            timeLimit : "2",
+            question : '',
+            optionA:'',
+            optionB:'',
+            optionC:'',
+            optionD:'',
+            correctAnswer:''
         }
     }
     if(action.type === "HANDLE_CHANGE"){
@@ -28,6 +41,14 @@ function quizReducer(state, action) {
             [action.payload.name] : action.payload.value
         }
     }
+    
+    if(action.type === "ADD_QUESTION"){
+        return {
+            ...state,
+            [action.payload.name] : action.payload.value
+        }
+    }
+
     if(action.type === "CREATE_QUIZ"){
         const quiz = {
             quizName : state.quizName,
