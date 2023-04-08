@@ -27,6 +27,12 @@ function Quiz({name, description, time, questions, id }) {
     setEditBy(id)
     navigate('/Edit')
   }
+  
+  const handleStartQuiz = () => {
+    setQuestions(questions)
+    setEditBy(id)
+    navigate('/startQuiz')
+  }
 
 
   return (  
@@ -50,9 +56,9 @@ function Quiz({name, description, time, questions, id }) {
         </div>
         <p>{description}</p>
         <div className='flex gap-3 text-sm text-[#3489ff]'>
-          <Link to={'/startQuiz'}>
-            <h1 className='cursor-pointer'>Start quiz <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
-          </Link>
+          <h1 className='cursor-pointer' onClick={handleStartQuiz}>Start quiz 
+            <FontAwesomeIcon className='h-3' icon={faAnglesRight}/>
+          </h1>
           <h1 className='cursor-pointer' onClick={handleAddQuestion}>Add question 
             <FontAwesomeIcon className='h-3' icon={faAnglesRight}/>
           </h1>
