@@ -9,8 +9,12 @@ function QuizProvider({children}) {
         dispatch({ type: 'CREATE_QUIZ' });
     }
     
-    const addQuestion = async (id) =>{
-        dispatch({ type: 'ADD_QUESTION', id });
+    const addQuestion = async () =>{
+        dispatch({ type: 'ADD_QUESTION'});
+    }
+    
+    const setEditBy = async (id) =>{
+        dispatch({ type: 'SET_EDIT_BY', id });
     }
 
     const clearValues = () =>{
@@ -24,6 +28,8 @@ function QuizProvider({children}) {
     const values = {
         state,
         createQuiz,
+        setEditBy,
+        addQuestion,
         clearValues,
         handleChange
     }

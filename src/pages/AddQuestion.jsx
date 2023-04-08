@@ -4,11 +4,13 @@ import { useAppContext } from '../context'
 import { notifySuccess } from '../Hooks/useNotifications'
 
 function AddQuestion() {
-    const { clearValues, handleChange, state } = useAppContext()
-    const { question, optionA, optionB, optionC, optionD, correctAnswer } = state
-    console.log(question, optionA, optionB, optionC, optionD, correctAnswer);
+    const { clearValues, handleChange,addQuestion, state } = useAppContext()
+    const { question, optionA, optionB, optionC, optionD, questionsList } = state
+    console.log(questionsList);
+
   const handleSubmit = (e) =>{
     e.preventDefault()
+    addQuestion()
     notifySuccess('Question added')
     clearValues()
   }
@@ -74,7 +76,6 @@ function AddQuestion() {
                 Create
             </button>
         </div>
-        {/* <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[340px] h-[550px] bg-[#2527a7] blur-xl"></div> */}
     </form>
   )
 }

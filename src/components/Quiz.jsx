@@ -8,9 +8,20 @@ import {
   faQuestionCircle
   } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
+import {notifySuccess} from '../Hooks/useNotifications'
+import { useNavigate } from 'react-router-dom';
+import { useAppContext } from '../context'
 
-function Quiz({name, description, time, questions, }) {
-  return (
+function Quiz({name, description, time, questions, id }) {
+  const navigate = useNavigate()
+  const {setEditBy} = useAppContext()
+
+  const handleAddQuestion = () => {
+    setEditBy(id)
+    navigate('/AddQuestion')
+  }
+
+  return (  
     <div className='bg-[#0b1637] p-6 rounded-md text-white flex flex-col gap-2 
     border-2 border-[#0e1c45] hover:border-pink-600'>
         <div className='flex items-center gap-5'>
@@ -34,9 +45,9 @@ function Quiz({name, description, time, questions, }) {
           <Link to={'/startQuiz'}>
             <h1 className='cursor-pointer'>Start quiz <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
           </Link>
-          <Link to={'/AddQuestion'}>
-            <h1 className='cursor-pointer'>Add question <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
-          </Link>
+          <h1 className='cursor-pointer' onClick={handleAddQuestion}>Add question 
+            <FontAwesomeIcon className='h-3' icon={faAnglesRight}/>
+          </h1>
           <Link to={'/Edit'}>
             <h1 className='cursor-pointer'>Edit <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
           </Link>

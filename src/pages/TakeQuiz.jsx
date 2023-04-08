@@ -6,15 +6,17 @@ function TakeQuiz() {
   const {state} = useAppContext()
   const {quizList} = state
 
-  const quizElements = quizList.map(item=>(
-    <Quiz
-    key={Math.floor(Math.random()*100)}
-    name={item.quizName}
-    description={item.description}
-    time={item.timeLimit}
-    />
-    
-  ))
+  const quizElements = quizList.map((item, idx)=>{
+    return (
+        <Quiz
+        key={idx}
+        id={idx}
+        name={item.quizName}
+        description={item.description}
+        time={item.timeLimit}
+    />)
+
+  })
   return (
     <div className='md:px-20 px-10 relative min-h-screen'>
       <div className='absolute top-11 left-18 rounded-full w-28 h-1 bg-[#3489ff]'></div>

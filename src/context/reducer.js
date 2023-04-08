@@ -10,7 +10,8 @@ export const initialState = {
     optionB:'',
     optionC:'',
     optionD:'',
-    correctAnswer:''
+    correctAnswer:'',
+    editQuizId : ''
 }
 
 function quizReducer(state, action) {
@@ -42,10 +43,28 @@ function quizReducer(state, action) {
         }
     }
     
-    if(action.type === "ADD_QUESTION"){
+    if(action.type === "SET_EDIT_BY"){
         return {
             ...state,
-            [action.payload.name] : action.payload.value
+            editQuizId : action.id
+        }
+    }
+    
+    if(action.type === "ADD_QUESTION"){
+        const newQuestion = {
+            createdBy : state.editQuizId,
+            question : state.question,
+            optionA: state.optionA,
+            optionB: state.optionB,
+            optionC: state.optionC,
+            optionD: state.optionD,
+            correctAnswer: state.correctAnswer
+        }
+        const updatedQuestionsList = [...state.questionsList, newQuestion]
+
+        return {
+            ...state,
+            questionsList : updatedQuestionsList
         }
     }
 
