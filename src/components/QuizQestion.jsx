@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Choices from './Choices'
 
 function QuizQestion({data}) {
+
   return (
     <div className='text-white'>
         <p className='text-2xl md:text-4xl font-semibold'>{data.question}</p>

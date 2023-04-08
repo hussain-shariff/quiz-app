@@ -1,5 +1,6 @@
 export const initialState = {
     quizName : "",
+    selectedChoice: '',
     description : "",
     gradingSystem : "simple",
     timeLimit : "2",
@@ -17,31 +18,31 @@ export const initialState = {
                     optionB: 'browser',
                     optionC: 'ISP',
                     optionD: "None of the above",
-                    correctAnswer: 'B'
+                    correctAnswer: 'browser'
                 },
                 {
                     question : 'Which of the following purpose, JavaScript is designed for ?',
-                    optionA: 'server',
-                    optionB: 'browser',
-                    optionC: 'ISP',
-                    optionD: "None of the above",
-                    correctAnswer: 'B'
+                    optionA: 'To Execute Query Related to DB on Server',
+                    optionB: 'To Style HTML Pages',
+                    optionC: 'To Perform Server Side Scripting Opertion',
+                    optionD: "To add interactivity to HTML Pages.",
+                    correctAnswer: 'To Execute Query Related to DB on Server'
                 },
                 {
                     question : 'JavaScript can be written',
-                    optionA: 'server',
-                    optionB: 'browser',
-                    optionC: 'ISP',
+                    optionA: 'directly on the Server Script',
+                    optionB: 'directly into HTML pages',
+                    optionC: 'All of the above',
                     optionD: "None of the above",
-                    correctAnswer: 'B'
+                    correctAnswer: 'directly into HTML pages'
                 },
                 {
                     question : 'JavaScript code is written inside file having extension',
-                    optionA: 'server',
-                    optionB: 'browser',
-                    optionC: 'ISP',
-                    optionD: "None of the above",
-                    correctAnswer: 'B'
+                    optionA: '.jvs',
+                    optionB: '.js',
+                    optionC: '.jsc',
+                    optionD: ".javascript",
+                    correctAnswer: '.js'
                 }
             ]
         },
@@ -53,28 +54,28 @@ export const initialState = {
             timeLimit : '1',
             questions : [
                 {
-                    question : 'What is a correct syntax to output "Hello World" in Python?',
-                    optionA: 'server',
-                    optionB: 'browser',
-                    optionC: 'ISP',
-                    optionD: "None of the above",
-                    correctAnswer: 'B'
+                    question : 'Who developed Python Programming Language?',
+                    optionA: 'Wick van Rossum',
+                    optionB: 'Rasmus Lerdorf',
+                    optionC: 'Guido van Rossum',
+                    optionD: "Niene Stom",
+                    correctAnswer: 'Guido van Rossum'
                 },
                 {
-                    question : 'How do you insert COMMENTS in Python code?',
-                    optionA: 'server',
-                    optionB: 'browser',
-                    optionC: 'ISP',
-                    optionD: "None of the above",
-                    correctAnswer: 'B'
+                    question : 'Which type of Programming does Python support?',
+                    optionA: 'object-oriented programming',
+                    optionB: 'structured programming',
+                    optionC: 'functional programming',
+                    optionD: "all of the mentioned",
+                    correctAnswer: 'all of the mentioned'
                 },
                 {
-                    question : 'Which one is NOT a legal variable name?',
-                    optionA: 'server',
-                    optionB: 'browser',
-                    optionC: 'ISP',
-                    optionD: "None of the above",
-                    correctAnswer: 'B'
+                    question : 'Is Python case sensitive when dealing with identifiers',
+                    optionA: 'no',
+                    optionB: 'yes',
+                    optionC: 'machine dependent',
+                    optionD: "none of the mentioned",
+                    correctAnswer: 'yes'
                 },
             ]
         }
@@ -111,6 +112,13 @@ function quizReducer(state, action) {
         return {
             ...state,
             [action.payload.name] : action.payload.value
+        }
+    }
+    
+    if(action.type === "SET_SELECTED_CHOICE"){
+        return {
+            ...state,
+            selectedChoice : action.choice
         }
     }
     

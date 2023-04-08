@@ -16,6 +16,9 @@ function QuizProvider({children}) {
     const setQuestions = async (questions) =>{
         dispatch({ type: 'SET_QUESTIONS', questions});
     }
+    const setSelectedChoice = async (choice) =>{
+        dispatch({ type: 'SET_SELECTED_CHOICE', choice});
+    }
     
     const setEditBy = async (id) =>{
         dispatch({ type: 'SET_EDIT_BY', id });
@@ -36,7 +39,8 @@ function QuizProvider({children}) {
         addQuestion,
         clearValues,
         handleChange,
-        setQuestions
+        setQuestions,
+        setSelectedChoice
     }
     return (
         <quizContext.Provider value={values}>
