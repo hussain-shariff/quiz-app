@@ -6,6 +6,7 @@ import {
   faChevronLeft
   } from '@fortawesome/free-solid-svg-icons'
 import QuizQestion from '../components/QuizQestion'
+import { Link } from 'react-router-dom'
 
 
 function StartQuiz() {
@@ -20,10 +21,13 @@ function StartQuiz() {
                     <FontAwesomeIcon icon={faChevronLeft}/> Previous
                 </div>
                 <h1 className='text-lg'>1/4</h1>
+                <Link to={'/score'}>
                 <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
                 hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'>
                     Next <FontAwesomeIcon icon={faChevronRight}/>
                 </div>
+                </Link>
+                
             </div>
         </div>
     </div>

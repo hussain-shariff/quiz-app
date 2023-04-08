@@ -7,6 +7,7 @@ import TakeQuiz from "./pages/TakeQuiz";
 import StartQuiz from "./pages/StartQuiz";
 import AddQuestion from "./pages/AddQuestion";
 import EditQuestions from "./pages/EditQuestions";
+import Score from "./pages/Score";
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/startQuiz" element={<StartQuiz/>}></Route>
           <Route path="/AddQuestion" element={<AddQuestion/>}></Route>
           <Route path="/Edit" element={<EditQuestions/>}></Route>
+          <Route path="/score" element={<Score/>}></Route>
         </Routes>
       </Router>
     </div>
