@@ -6,7 +6,6 @@ import { notifySuccess } from '../Hooks/useNotifications'
 function AddQuestion() {
     const { clearValues, handleChange,addQuestion, state } = useAppContext()
     const { question, optionA, optionB, optionC, optionD, questionsList } = state
-    console.log(questionsList);
 
   const handleSubmit = (e) =>{
     e.preventDefault()

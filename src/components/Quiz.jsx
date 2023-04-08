@@ -14,7 +14,8 @@ import { useAppContext } from '../context'
 
 function Quiz({name, description, time, questions, id }) {
   const navigate = useNavigate()
-  const {setEditBy} = useAppContext()
+  const {setEditBy, setQuestions} = useAppContext()
+
 
   const handleAddQuestion = () => {
     setEditBy(id)
@@ -22,9 +23,11 @@ function Quiz({name, description, time, questions, id }) {
   }
   
   const handleEditQuestion = () => {
+    setQuestions(questions)
     setEditBy(id)
     navigate('/Edit')
   }
+
 
   return (  
     <div className='bg-[#0b1637] p-6 rounded-md text-white flex flex-col gap-2 
@@ -36,7 +39,7 @@ function Quiz({name, description, time, questions, id }) {
               <div className='flex items-center gap-2'>
                 <div className='flex items-center gap-1 text-gray-500'>
                   <FontAwesomeIcon icon={faQuestionCircle} className='h-3'/>
-                  <p className='text-sm'>10 questions</p>
+                  <p className='text-sm'>{questions.length} questions</p>
                 </div>
                 <div className='flex items-center gap-1 text-gray-500'>
                   <FontAwesomeIcon icon={faClock} className='h-3'/>
