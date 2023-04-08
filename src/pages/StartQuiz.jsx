@@ -11,20 +11,22 @@ import { useAppContext } from '../context'
 import { useNavigate } from 'react-router-dom';
 
 function StartQuiz() {
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
   const [currentIndex, setCurrentIndex] = useState(0)
   const {state} = useAppContext()
   const {quizQuestions} = state
-
+  console.log(currentIndex, quizQuestions.length);
 
   const handleClick = (action) =>{
-    // if(action === 'prev'){
-    //   setCurrentIndex(prev=> prev-1)
-    // }else if(action === 'next'){
-    //   setCurrentIndex(pre=> pre+1)
-    // }
-    console.log(action);
+    if(action === 'prev'){
+      setCurrentIndex(prev=> prev-1)
+    }else if(action === 'next'){
+      setCurrentIndex(pre=> pre+1)
+    }else if(action === 'finish'){
+      navigate('/score')
+    }
   }
+
 
   return (
     <div className='relative'>
@@ -35,15 +37,18 @@ function StartQuiz() {
             <div className='flex justify-between items-center mt-20 text-sm text-[#4391ff]'>
                 {currentIndex > 0 && <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
                 hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'
-                onClick={handleClick('prev')}>
+                onClick={()=>handleClick('prev')}>
                     <FontAwesomeIcon icon={faChevronLeft}/> Previous
                 </div>}
                 <h1 className={`text-lg ${currentIndex === 0 && 'ml-[50%]'}`}>{currentIndex+1}/{quizQuestions.length}</h1>
-                <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
-                hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'
-                onClick={handleClick('next')}>
+                {currentIndex < quizQuestions.length -1 && <div onClick={()=>handleClick('next')} className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
+                hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'>
                     Next <FontAwesomeIcon icon={faChevronRight}/>
-                </div>
+                </div>}
+                {currentIndex+1 === quizQuestions.length && <div onClick={()=>handleClick('finish')} className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
+                hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'>
+                    Submit
+                </div>}
             </div>
         </div>
     </div>
