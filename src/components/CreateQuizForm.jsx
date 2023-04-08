@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import InputForm from './InputForm'
 import { useAppContext } from '../context'
+import {notifySuccess} from '../Hooks/useNotifications'
 
 function CreateQuizForm() {
-    const {clearValues, handleChange, state} = useAppContext()
+    const {clearValues, handleChange, state, createQuiz} = useAppContext()
     const {quizName, description, gradingSystem, timeLimit} = state
 
     const handleData = (e) =>{
@@ -13,6 +14,8 @@ function CreateQuizForm() {
     }
     const handleSubmit = (e) =>{
         e.preventDefault()
+        createQuiz()
+        notifySuccess('Quiz created')
         clearValues()
     }
   return (

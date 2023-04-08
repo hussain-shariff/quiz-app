@@ -8,6 +8,7 @@ import StartQuiz from "./pages/StartQuiz";
 import AddQuestion from "./pages/AddQuestion";
 import EditQuestions from "./pages/EditQuestions";
 import Score from "./pages/Score";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/score" element={<Score/>}></Route>
         </Routes>
       </Router>
+      <ToastContainer/>
     </div>
   )
 }

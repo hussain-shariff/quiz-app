@@ -5,14 +5,8 @@ const quizContext = createContext()
 function QuizProvider({children}) {
     const [state, dispatch] = useReducer(quizReducer, initialState)
 
-    const createJob = async () =>{
-        await useCreateJob(
-            state.company,
-            state.position,
-            state.location,
-            state.jobType,
-            state.status,
-        )
+    const createQuiz = async () =>{
+        dispatch({ type: 'CREATE_QUIZ' });
     }
 
     const clearValues = () =>{
@@ -25,7 +19,7 @@ function QuizProvider({children}) {
     
     const values = {
         state,
-        createJob,
+        createQuiz,
         clearValues,
         handleChange
     }

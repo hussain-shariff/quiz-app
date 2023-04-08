@@ -2,7 +2,8 @@ export const initialState = {
     quizName : "",
     description : "",
     gradingSystem : "simple",
-    timeLimit : "2"
+    timeLimit : "2",
+    quizList : []
 }
 
 function quizReducer(state, action) {
@@ -25,6 +26,19 @@ function quizReducer(state, action) {
         return {
             ...state,
             [action.payload.name] : action.payload.value
+        }
+    }
+    if(action.type === "CREATE_QUIZ"){
+        const quiz = {
+            quizName : state.quizName,
+            description : state.description,
+            gradingSystem : state.gradingSystem,
+            timeLimit : state.timeLimit
+        }
+        const updatedQuizList = [...state.quizList, quiz]
+        return {
+            ...state,
+            quizList : updatedQuizList
         }
     }
 }
