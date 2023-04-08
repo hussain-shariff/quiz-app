@@ -13,6 +13,10 @@ function QuizProvider({children}) {
         dispatch({ type: 'ADD_QUESTION'});
     }
     
+    const getQuestions = async () =>{
+        dispatch({ type: 'GET_QUESTIONS'});
+    }
+    
     const setEditBy = async (id) =>{
         dispatch({ type: 'SET_EDIT_BY', id });
     }

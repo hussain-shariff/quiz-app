@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   return (
-    <div className='h-screen flex items-center justify-center'>
+    <div className='h-[90vh] flex items-center justify-center'>
       <div className=' text-center p-5'>
           <h1 className='text-4xl md:text-6xl text-[#5942e9] font-bold'> Unleash Your Inner Quizmaster.</h1>
           <p className='text-white md:font-bold mt-5'>Join the Fun and Test Your Knowledge with Our Wide Range of Quizzes</p>

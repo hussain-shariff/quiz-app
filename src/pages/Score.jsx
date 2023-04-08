@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Score() {
   return (
-    <div className='min-h-screen flex justify-center items-center'>
+    <div className='h-[90vh] flex justify-center items-center'>
       <div className='border border-[#1a2958] px-10 py-7 text-white bg-[#0b1124]
       flex flex-col gap-3 rounded-md'>
         <h1 className='text-3xl font-bold text-center text-[#0543fc] mb-3'>Quiz Result</h1>

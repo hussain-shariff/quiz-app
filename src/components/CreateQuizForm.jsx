@@ -19,7 +19,7 @@ function CreateQuizForm() {
         clearValues()
     }
   return (
-    <form className='h-screen relative' onSubmit={handleSubmit}>
+    <form className='h-[90vh] relative' onSubmit={handleSubmit}>
         <div className='border border-gray-700 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 gap-4
             flex flex-col bg-[#0b1124] z-30 backdrop-blur-3xl p-10 rounded-md w-[340px]'>
             <h1 className='text-center font-bold text-[#5942e9] text-3xl z-40'>Create a quiz</h1>

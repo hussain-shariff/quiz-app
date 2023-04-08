@@ -20,6 +20,11 @@ function Quiz({name, description, time, questions, id }) {
     setEditBy(id)
     navigate('/AddQuestion')
   }
+  
+  const handleEditQuestion = () => {
+    setEditBy(id)
+    navigate('/Edit')
+  }
 
   return (  
     <div className='bg-[#0b1637] p-6 rounded-md text-white flex flex-col gap-2 
@@ -48,9 +53,9 @@ function Quiz({name, description, time, questions, id }) {
           <h1 className='cursor-pointer' onClick={handleAddQuestion}>Add question 
             <FontAwesomeIcon className='h-3' icon={faAnglesRight}/>
           </h1>
-          <Link to={'/Edit'}>
-            <h1 className='cursor-pointer'>Edit <FontAwesomeIcon className='h-3' icon={faAnglesRight}/></h1>
-          </Link>
+          <h1 className='cursor-pointer' onClick={handleEditQuestion}>Edit 
+            <FontAwesomeIcon className='h-3' icon={faAnglesRight}/>
+          </h1>
         </div>
     </div>
   )

@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
 function StartQuiz() {
   return (
-    <div className='min-h-screen relative'>
+    <div className='relative'>
         <Timer/>
         <div className='mt-28 px-12 md:px-32'>
             <QuizQestion/>

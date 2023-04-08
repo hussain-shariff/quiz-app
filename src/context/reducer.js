@@ -4,7 +4,7 @@ export const initialState = {
     gradingSystem : "simple",
     timeLimit : "2",
     quizList : [],
-    questionsList : [],
+    allQuestions : [],
     question : '',
     optionA:'',
     optionB:'',
@@ -15,12 +15,7 @@ export const initialState = {
 }
 
 function quizReducer(state, action) {
-    if(action.type === "SET_USER"){
-        const {username, lastname, location } = action.userData
-        return {
-            ...state,
-        }
-    }
+
     if(action.type === "CLEAR_VALUES"){
         return {
             ...state,
@@ -50,6 +45,13 @@ function quizReducer(state, action) {
         }
     }
     
+    if(action.type === "GET_QUESTIONS"){
+        return {
+            ...state,
+            editQuizId : action.id
+        }
+    }
+    
     if(action.type === "ADD_QUESTION"){
         const newQuestion = {
             createdBy : state.editQuizId,
@@ -60,11 +62,11 @@ function quizReducer(state, action) {
             optionD: state.optionD,
             correctAnswer: state.correctAnswer
         }
-        const updatedQuestionsList = [...state.questionsList, newQuestion]
+        const updatedallQuestions = [...state.allQuestions, newQuestion]
 
         return {
             ...state,
-            questionsList : updatedQuestionsList
+            allQuestions : updatedallQuestions
         }
     }
 
