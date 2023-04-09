@@ -197,7 +197,7 @@ function quizReducer(state, action) {
             description : state.description,
             gradingSystem : state.gradingSystem,
             timeLimit : state.timeLimit,
-            questions : [{question: 'test'}]
+            questions : []
         }
         const updatedQuizList = [...state.quizList, quiz]
         return {

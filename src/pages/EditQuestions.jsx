@@ -26,7 +26,7 @@ function EditQuestions() {
                 question={item.question}/>
             ))}
             <Link to={'/quiz'} className='w-48 mx-auto'>
-                <button className='border-2 rounded mt-20 border-[#3489ff] text-[#3489ff] px-10 py-2
+                <button className='border-2 rounded md:mt-20 mt-10 ml-5 border-[#3489ff] text-[#3489ff] px-10 py-2
                 hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'>Submit</button>
             </Link>
         </div>

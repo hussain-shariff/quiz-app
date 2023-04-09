@@ -15,7 +15,7 @@ function Question({question}) {
     notifySuccess('Question deleted')
   }
   return (
-    <div className='bg-[#0f1b40] border-2 border-[#102052] flex justify-between items-center px-10 py-3'>
+    <div className='bg-[#0f1b40] border-2 border-[#102052] flex justify-between items-center px-7 gap-2 md:px-10 py-3'>
         <p>Q : {question}</p>
         <FontAwesomeIcon onClick={handleDelete} icon={faTrash} className='cursor-pointer hover:text-[#2b5bec]'/>
     </div>
