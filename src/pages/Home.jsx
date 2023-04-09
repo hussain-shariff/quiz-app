@@ -7,7 +7,7 @@ function Home() {
       <div className=' text-center p-5'>
           <h1 className='text-4xl md:text-6xl text-[#5942e9] font-bold'> Unleash Your Inner Quizmaster.</h1>
           <p className='text-white md:font-bold mt-5'>Join the Fun and Test Your Knowledge with Our Wide Range of Quizzes</p>
-          <Link to={'/create'}>
+          <Link to={'/quiz'}>
             <div className='bg-[#5942e9] w-60 group cursor-pointer flex justify-center items-center
             text-white mt-5 mx-auto py-2 rounded-full hover:bg-[#432ecb]'>
               <p>Get Started </p>
