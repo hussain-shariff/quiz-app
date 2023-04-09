@@ -150,7 +150,7 @@ function quizReducer(state, action) {
     if(action.type === "REPLACE_DATA"){
         return {
             ...state,
-            quizList : action.data
+            quizList : action.res
         }
     }
     

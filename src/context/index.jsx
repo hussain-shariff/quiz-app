@@ -1,5 +1,7 @@
 import React, {createContext, useState, useContext, useReducer } from 'react'
 import quizReducer, {initialState} from './reducer'
+import useGetData from '../Hooks/useGetData'
+
 const quizContext = createContext()
 
 function QuizProvider({children}) {
@@ -21,8 +23,9 @@ function QuizProvider({children}) {
         dispatch({ type: 'SET_QUESTIONS', questions});
     }
     
-    const replaceQuizList = (data) =>{
-        dispatch({ type: 'REPLACE_DATA', data});
+    const getData = async () =>{
+        const res = await useGetData()
+        dispatch({ type: 'REPLACE_DATA', res});
     }
     const setSelectedChoice = async (choice) =>{
         dispatch({ type: 'SET_SELECTED_CHOICE', choice});
@@ -55,7 +58,7 @@ function QuizProvider({children}) {
         setSelectedChoice,
         setSelectedChoicesArray,
         deleteQuestion,
-        replaceQuizList
+        getData
     }
     return (
         <quizContext.Provider value={values}>

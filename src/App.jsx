@@ -13,7 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context'
 
 function App() {
-  const {state, replaceQuizList} = useAppContext()
+  const {state, getData} = useAppContext()
   const {quizList} = state
 
   // useEffect(()=>{
@@ -23,9 +23,7 @@ function App() {
   //   })
   // },[quizList])
   useEffect(()=>{
-    fetch('https://quiz-app-3a478-default-rtdb.asia-southeast1.firebasedatabase.app/quizList.json')
-      .then(res=> res.json())
-      .then(json=> replaceQuizList(json))
+    getData()
   },[])
 
   return (
