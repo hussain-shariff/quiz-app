@@ -2,6 +2,8 @@
 
 project in action - [quiz lab](https://quiz-lab-hussain-shariff.vercel.app/)
 
+# Tech Stack
+
 
 Frontend Stack: React, React router, tailwind css
 
