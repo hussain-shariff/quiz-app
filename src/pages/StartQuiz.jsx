@@ -12,10 +12,11 @@ import { notifyError } from '../Hooks/useNotifications'
 
 function StartQuiz() {
   const navigate = useNavigate()
-  const [currentIndex, setCurrentIndex] = useState(0)
   const {state, setSelectedChoice} = useAppContext()
   const {quizQuestions, selectedChoice} = state
-
+  const [currentIndex, setCurrentIndex] = useState(0)
+ 
+  
   useEffect(()=>{
     if(quizQuestions.length === 0){
       navigate('/quiz')
@@ -43,7 +44,8 @@ function StartQuiz() {
         <Timer/>
         <div className='mt-28 px-12 md:px-32'>
             {quizQuestions.length > 0 && <QuizQestion
-              data={quizQuestions[currentIndex]}/>}
+              data={quizQuestions[currentIndex]}
+              index={currentIndex}/>}
             <div className='flex justify-between items-center mt-20 text-sm text-[#4391ff]'>
                 <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
                 hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'

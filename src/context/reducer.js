@@ -82,6 +82,7 @@ export const initialState = {
     ],
     allQuestions : [],
     quizQuestions:[],
+    selectedChoices:[],
     question : '',
     optionA:'',
     optionB:'',
@@ -121,6 +122,14 @@ function quizReducer(state, action) {
             selectedChoice : action.choice
         }
     }
+    if(action.type === "SET_SELECTED_CHOICE_ARRAY"){
+        const updatedSelectedChoices = [...state.selectedChoices];
+        updatedSelectedChoices[action.payload.idx] = action.payload.val;
+        return {
+            ...state,
+            selectedChoices : updatedSelectedChoices
+        }
+    }
     
     if(action.type === "SET_EDIT_BY"){
         return {
@@ -132,7 +141,8 @@ function quizReducer(state, action) {
     if(action.type === "SET_QUESTIONS"){
         return {
             ...state,
-            quizQuestions : action.questions
+            quizQuestions : action.questions,
+            selectedChoices : new Array(action.questions.length).fill(0)
         }
     }
     

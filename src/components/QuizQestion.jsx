@@ -1,20 +1,29 @@
 import React, {useState} from 'react'
 import Choices from './Choices'
 
-function QuizQestion({data}) {
+function QuizQestion({data, index}) {
+
 
   return (
     <div className='text-white'>
         <p className='text-2xl md:text-4xl font-semibold'>{data.question}</p>
         <div className='mt-10 flex flex-col gap-3'>
             <Choices
-              choice={data.optionA}/>
+              choice={data.optionA}
+              answer={data.correctAnswer}
+              index={index}/>
             <Choices
-              choice={data.optionB}/>
+              choice={data.optionB}
+              answer={data.correctAnswer}
+              index={index}/>
             <Choices
-              choice={data.optionC}/>
+              choice={data.optionC}
+              answer={data.correctAnswer}
+              index={index}/>
             <Choices
-              choice={data.optionD}/>
+              choice={data.optionD}
+              answer={data.correctAnswer}
+              index={index}/>
         </div>
     </div>
   )
