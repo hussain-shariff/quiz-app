@@ -23,9 +23,7 @@ function StartQuiz() {
   },[])
 
   const handleClick = (action) =>{
-    if(action === 'prev'){
-      setCurrentIndex(prev=> prev-1)
-    }else if(action === 'next'){
+    if(action === 'next'){
       if(selectedChoice === ''){
         notifyError('select answer')
       }else{
@@ -47,16 +45,11 @@ function StartQuiz() {
             {quizQuestions.length > 0 && <QuizQestion
               data={quizQuestions[currentIndex]}/>}
             <div className='flex justify-between items-center mt-20 text-sm text-[#4391ff]'>
-                {currentIndex === 0 && <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
+                <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
                 hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'
                 onClick={()=>handleClick('home')}>
                     <FontAwesomeIcon icon={faChevronLeft}/> Back to Home
-                </div>}
-                {currentIndex > 0 && <div className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
-                hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'
-                onClick={()=>handleClick('prev')}>
-                    <FontAwesomeIcon icon={faChevronLeft}/> Previous
-                </div>}
+                </div>
                 <h1 className={`text-lg`}>{currentIndex+1}/{quizQuestions.length}</h1>
                 {currentIndex < quizQuestions.length -1 && <div onClick={()=>handleClick('next')} className='border-2 border-[#3489ff] px-4 cursor-pointer rounded
                 hover:bg-[#3489ff] hover:text-white transition ease-out duration-300'>
