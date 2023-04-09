@@ -159,7 +159,8 @@ function quizReducer(state, action) {
 
         return {
             ...state,
-            quizList : updatedItems
+            quizList : updatedItems,
+            quizQuestions: updatedQuestions
         }
     }
     
