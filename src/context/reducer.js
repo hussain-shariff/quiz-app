@@ -88,7 +88,7 @@ export const initialState = {
     optionB:'',
     optionC:'',
     optionD:'',
-    correctAnswer:'',
+    correctAnswer:'A',
     editQuizId : ''
 }
 
@@ -106,7 +106,7 @@ function quizReducer(state, action) {
             optionB:'',
             optionC:'',
             optionD:'',
-            correctAnswer:''
+            correctAnswer:'A'
         }
     }
     if(action.type === "HANDLE_CHANGE"){
@@ -165,27 +165,39 @@ function quizReducer(state, action) {
     }
     
     if(action.type === "ADD_QUESTION"){
+        let answerFromOptions;
+        if(state.correctAnswer === 'A'){
+            answerFromOptions = state.optionA
+        }
+        else if( state.correctAnswer === "B"){
+            answerFromOptions = state.optionB
+        }
+        else if( state.correctAnswer === "C"){
+            answerFromOptions = state.optionC
+        }
+        else if( state.correctAnswer === "D"){
+            answerFromOptions = state.optionD
+        }
         const newQuestion = {
             question : state.question,
             optionA: state.optionA,
             optionB: state.optionB,
             optionC: state.optionC,
             optionD: state.optionD,
-            correctAnswer: state.correctAnswer
+            correctAnswer: answerFromOptions
         }
         const itemPresentIndex = state.quizList.findIndex(item=> item._id === state.editQuizId);
-        const existingItem = state.quizList[itemPresentIndex];
-        const arr = [...existingItem.questions, newQuestion]
-        console.log(arr);
-        const updatedItem = {
+        let existingItem = state.quizList[itemPresentIndex];
+        const updatedQuestions = existingItem.questions.concat(newQuestion)
+        existingItem = {
             ...existingItem,
-            questions : arr
+            questions : updatedQuestions
         }
         let updatedItems =  [...state.quizList];
-        updatedItems[itemPresentIndex] = updatedItem;
-        console.log(updatedItems);
+        updatedItems[itemPresentIndex] = existingItem;
         return {
-            ...state
+            ...state,
+            quizList : updatedItems
         }
     }
 

@@ -5,7 +5,7 @@ import { notifySuccess } from '../Hooks/useNotifications'
 
 function AddQuestion() {
     const { clearValues, handleChange,addQuestion, state } = useAppContext()
-    const { question, optionA, optionB, optionC, optionD, questionsList } = state
+    const { question, optionA, optionB, optionC, optionD, correctAnswer, questionsList } = state
 
   const handleSubmit = (e) =>{
     e.preventDefault()
@@ -61,7 +61,7 @@ function AddQuestion() {
                 />
             <div>
                 <label htmlFor="time-limit" className='font-semibold text-md'>Set Answer</label>
-                <select name='correctAnswer' id='time-limit' onChange={handleData}
+                <select name='correctAnswer' id='time-limit' onChange={handleData} value={correctAnswer}
                 className='w-full py-1 bg-inherit border-b-[2px]' >
                     <option className='bg-[#5942e9]' value='A'>Option A</option>
                     <option className='bg-[#5942e9]' value='B'>Option B</option>
