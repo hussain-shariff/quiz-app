@@ -28,7 +28,7 @@ function Quiz({name, description, time, questions, id }) {
   
   const handleStartQuiz = () => {
     setQuestions(questions)
-    setEditBy(id)
+    setEditBy(time)
     navigate('/startQuiz')
   }
 

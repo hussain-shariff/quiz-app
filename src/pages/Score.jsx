@@ -19,7 +19,6 @@ function Score() {
         <p>Total number of questions - {quizQuestions.length}</p>
         <p>Number of correct answers - {correctAnswers}</p>
         <p>Number of wrong answers - {wrongAnswers}</p>
-        <p>Time taken - 2:00 mins</p>
         <Link to={'/quiz'}>
         <button className='border border-[#0543fc] py-1 w-full rounded hover:bg-[#0543fc]
         transition ease-out duration-300 mt-2'>Back to Home</button>

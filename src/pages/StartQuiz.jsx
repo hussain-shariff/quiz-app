@@ -13,9 +13,8 @@ import { notifyError } from '../Hooks/useNotifications'
 function StartQuiz() {
   const navigate = useNavigate()
   const {state, setSelectedChoice} = useAppContext()
-  const {quizQuestions, selectedChoice} = state
+  const {quizQuestions, selectedChoice, editQuizId} = state
   const [currentIndex, setCurrentIndex] = useState(0)
- 
   
   useEffect(()=>{
     if(quizQuestions.length === 0){
@@ -41,7 +40,8 @@ function StartQuiz() {
 
   return (
     <div className='relative'>
-        <Timer/>
+        <Timer
+          countDownTime={editQuizId}/>
         <div className='mt-28 px-12 md:px-32'>
             {quizQuestions.length > 0 && <QuizQestion
               data={quizQuestions[currentIndex]}
