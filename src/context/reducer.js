@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export const initialState = {
     quizName : "",
     selectedChoice: '',
@@ -201,7 +203,7 @@ function quizReducer(state, action) {
     }
 
     if(action.type === "CREATE_QUIZ"){
-        const id = Math.floor(Math.random()*10000)
+        const id = uuidv4();
         const quiz = {
             _id : id,
             quizName : state.quizName,
