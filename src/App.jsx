@@ -1,5 +1,4 @@
 import React, {useEffect} from "react";
-import CreateQuizForm from "./components/CreateQuizForm";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route, json } from "react-router-dom";
 import Home from "./pages/Home";
@@ -13,15 +12,8 @@ import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context'
 
 function App() {
-  const {state, getData} = useAppContext()
-  const {quizList} = state
+  const {getData} = useAppContext()
 
-  // useEffect(()=>{
-  //   fetch('https://quiz-app-3a478-default-rtdb.asia-southeast1.firebasedatabase.app/quizList.json',{
-  //     method : 'PUT',
-  //     body : JSON.stringify(quizList)
-  //   })
-  // },[quizList])
   useEffect(()=>{
     getData()
   },[])
