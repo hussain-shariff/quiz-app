@@ -13,6 +13,10 @@ function QuizProvider({children}) {
         dispatch({ type: 'ADD_QUESTION'});
     }
     
+    const deleteQuestion = async (question) =>{
+        dispatch({ type: 'DELETE_QUESTION', question});
+    }
+    
     const setQuestions = async (questions) =>{
         dispatch({ type: 'SET_QUESTIONS', questions});
     }
@@ -45,7 +49,8 @@ function QuizProvider({children}) {
         handleChange,
         setQuestions,
         setSelectedChoice,
-        setSelectedChoicesArray
+        setSelectedChoicesArray,
+        deleteQuestion
     }
     return (
         <quizContext.Provider value={values}>

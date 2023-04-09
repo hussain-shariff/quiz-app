@@ -146,6 +146,23 @@ function quizReducer(state, action) {
         }
     }
     
+    if(action.type === "DELETE_QUESTION"){
+        const itemPresentIndex = state.quizList.findIndex(item=> item._id === state.editQuizId);
+        let existingItem = state.quizList[itemPresentIndex];
+        const updatedQuestions = existingItem.questions.filter(item=> item.question !== action.question)
+        existingItem = {
+            ...existingItem,
+            questions : updatedQuestions
+        }
+        let updatedItems =  [...state.quizList];
+        updatedItems[itemPresentIndex] = existingItem;
+
+        return {
+            ...state,
+            quizList : updatedItems
+        }
+    }
+    
     if(action.type === "ADD_QUESTION"){
         const newQuestion = {
             question : state.question,
