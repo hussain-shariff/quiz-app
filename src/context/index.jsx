@@ -20,6 +20,10 @@ function QuizProvider({children}) {
     const setQuestions = async (questions) =>{
         dispatch({ type: 'SET_QUESTIONS', questions});
     }
+    
+    const replaceQuizList = (data) =>{
+        dispatch({ type: 'REPLACE_DATA', data});
+    }
     const setSelectedChoice = async (choice) =>{
         dispatch({ type: 'SET_SELECTED_CHOICE', choice});
     }
@@ -50,7 +54,8 @@ function QuizProvider({children}) {
         setQuestions,
         setSelectedChoice,
         setSelectedChoicesArray,
-        deleteQuestion
+        deleteQuestion,
+        replaceQuizList
     }
     return (
         <quizContext.Provider value={values}>

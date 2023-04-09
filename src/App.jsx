@@ -13,15 +13,20 @@ import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context'
 
 function App() {
-  const {state} = useAppContext()
+  const {state, replaceQuizList} = useAppContext()
   const {quizList} = state
 
+  // useEffect(()=>{
+  //   fetch('https://quiz-app-3a478-default-rtdb.asia-southeast1.firebasedatabase.app/quizList.json',{
+  //     method : 'PUT',
+  //     body : JSON.stringify(quizList)
+  //   })
+  // },[quizList])
   useEffect(()=>{
-    fetch('https://quiz-app-3a478-default-rtdb.asia-southeast1.firebasedatabase.app/quizList.json',{
-      method : 'PUT',
-      body : JSON.stringify(quizList)
-    })
-  },[quizList])
+    fetch('https://quiz-app-3a478-default-rtdb.asia-southeast1.firebasedatabase.app/quizList.json')
+      .then(res=> res.json())
+      .then(json=> replaceQuizList(json))
+  },[])
 
   return (
     <div className=" min-h-screen bg-gradient-to-tl from-[#121351] via-[#101229] to-black">
