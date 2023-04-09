@@ -80,7 +80,6 @@ export const initialState = {
             ]
         }
     ],
-    allQuestions : [],
     quizQuestions:[],
     selectedChoices:[],
     question : '',
