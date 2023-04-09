@@ -15,11 +15,7 @@ let isInitial = true;
 function App() {
   const {getData, postData, state} = useAppContext()
   const {quizList, isChange} = state
-
-  useEffect(()=>{
-    getData()
-  },[])
-
+  
   useEffect(()=>{
     if(isInitial){
       isInitial = false
@@ -29,6 +25,11 @@ function App() {
       postData()
     }
   }, [quizList])
+  
+  useEffect(()=>{
+    getData()
+  },[])
+
 
   return (
     <div className=" min-h-screen bg-gradient-to-tl from-[#121351] via-[#101229] to-black">

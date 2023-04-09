@@ -10,8 +10,8 @@ export const initialState = {
     quizList : [
         // {
         //     _id : 111,
-        //     quizName : 'javascript',
-        //     description : 'data structures and algo',
+        //     quizName : 'JavaScript Mastermind',
+        //     description : 'Do you have what it takes to be a JS genius?',
         //     gradingSystem : 'simple',
         //     timeLimit : '2',
         //     questions : [
@@ -51,10 +51,10 @@ export const initialState = {
         // },
         // {
         //     _id : 222,
-        //     quizName : 'python',
-        //     description : 'OOPS',
+        //     quizName : 'Python Powerhouse Quiz',
+        //     description : 'Power up your Python skills with our quiz!',
         //     gradingSystem : 'weighted',
-        //     timeLimit : '1',
+        //     timeLimit : '2',
         //     questions : [
         //         {
         //             question : 'Who developed Python Programming Language?',

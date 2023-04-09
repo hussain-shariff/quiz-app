@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
   faClock,
   faAnglesRight,
-  faBrain,
-  faQuestionCircle
+  faQuestionCircle,
+  faShieldHalved
   } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context'
@@ -38,7 +38,7 @@ function Quiz({name, description, time, questions, id }) {
     <div className='bg-[#0b1637] p-6 rounded-md text-white flex flex-col gap-2 
     border-2 border-[#0e1c45] hover:border-pink-600'>
         <div className='flex items-center gap-5'>
-            <FontAwesomeIcon icon={faBrain} className='h-8 text-white'/>
+            <FontAwesomeIcon icon={faShieldHalved} className='h-8 text-white'/>
             <div>
               <h1 className='text-xl font-bold'>{name}</h1>
               <div className='flex items-center gap-2'>
