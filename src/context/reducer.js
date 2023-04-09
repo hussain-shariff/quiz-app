@@ -6,6 +6,7 @@ export const initialState = {
     description : "",
     gradingSystem : "simple",
     timeLimit : "2",
+    isChange : false,
     quizList : [
         // {
         //     _id : 111,
@@ -168,7 +169,8 @@ function quizReducer(state, action) {
         return {
             ...state,
             quizList : updatedItems,
-            quizQuestions: updatedQuestions
+            quizQuestions: updatedQuestions,
+            isChange : true
         }
     }
     
@@ -199,7 +201,8 @@ function quizReducer(state, action) {
         const updatedQuestions = existingItem.questions.concat(newQuestion)
         existingItem = {
             ...existingItem,
-            questions : updatedQuestions
+            questions : updatedQuestions,
+            isChange : true
         }
         let updatedItems =  [...state.quizList];
         updatedItems[itemPresentIndex] = existingItem;
@@ -217,12 +220,20 @@ function quizReducer(state, action) {
             description : state.description,
             gradingSystem : state.gradingSystem,
             timeLimit : state.timeLimit,
-            questions : []
+            questions : [
+                {question : 'Which of the following is an example of a dynamically typed programming language?',
+                optionA: 'java',
+                optionB: 'python',
+                optionC: 'ruby',
+                optionD: 'c++',
+                correctAnswer: 'python'}
+            ]
         }
         const updatedQuizList = [...state.quizList, quiz]
         return {
             ...state,
-            quizList : updatedQuizList
+            quizList : updatedQuizList,
+            isChange : true
         }
     }
 }

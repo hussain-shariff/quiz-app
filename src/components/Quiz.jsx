@@ -8,7 +8,6 @@ import {
   } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom';
 import { useAppContext } from '../context'
-import {notifyError} from '../Hooks/useNotifications'
 
 function Quiz({name, description, time, questions, id }) {
   const navigate = useNavigate()
@@ -21,24 +20,19 @@ function Quiz({name, description, time, questions, id }) {
   }
   
   const handleEditQuestion = () => {
-    if(questions.length === 0){
-      notifyError('Add questions')
-    }else{
+
       setQuestions(questions)
       setEditBy(id)
       navigate('/Edit')
-    }
+    
   }
   
   const handleStartQuiz = () => {
-    if(questions.length === 0){
-      notifyError('Add questions')
-    }else{
     setQuestions(questions)
     setEditBy(time)
     navigate('/startQuiz')
   }
-  }
+  
 
   return (  
     <div className='bg-[#0b1637] p-6 rounded-md text-white flex flex-col gap-2 

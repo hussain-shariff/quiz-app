@@ -11,12 +11,24 @@ import Score from "./pages/Score";
 import { ToastContainer } from 'react-toastify';
 import { useAppContext } from './context'
 
+let isInitial = true;
 function App() {
-  const {getData} = useAppContext()
+  const {getData, postData, state} = useAppContext()
+  const {quizList, isChange} = state
 
   useEffect(()=>{
     getData()
   },[])
+
+  useEffect(()=>{
+    if(isInitial){
+      isInitial = false
+      return
+    }
+    if(isChange){
+      postData()
+    }
+  }, [quizList])
 
   return (
     <div className=" min-h-screen bg-gradient-to-tl from-[#121351] via-[#101229] to-black">

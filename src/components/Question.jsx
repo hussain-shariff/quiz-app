@@ -4,15 +4,20 @@ import {
   faTrash
   } from '@fortawesome/free-solid-svg-icons'
 import { useAppContext } from '../context'
-import {notifySuccess} from '../Hooks/useNotifications'
+import {notifySuccess, notifyError} from '../Hooks/useNotifications'
 
 function Question({question}) {
   const {deleteQuestion, state} = useAppContext()
-  
+  const {quizQuestions} = state
 
   const handleDelete = () =>{
-    deleteQuestion(question);
-    notifySuccess('Question deleted')
+    if(quizQuestions.length === 1){
+      notifyError('A quiz must have at least one question.')
+    }
+    else{
+      deleteQuestion(question);
+      notifySuccess('Question deleted')
+    }
   }
   return (
     <div className='bg-[#0f1b40] border-2 border-[#102052] flex justify-between items-center px-7 gap-2 md:px-10 py-3'>
