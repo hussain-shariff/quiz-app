@@ -150,7 +150,7 @@ function quizReducer(state, action) {
                 optionA: 'java',
                 optionB: 'python',
                 optionC: 'ruby',
-                optionD: 'c++',
+                optionD: 'rust',
                 correctAnswer: 'python'}
             ]
         }
